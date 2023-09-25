@@ -39,10 +39,7 @@ const CarouselMini = ({ data, selectedMovie }) => {
                   height={0}
                   alt=""
                   className="img-fluid"
-                  style={{
-                    width: "auto",
-                    height: "auto",
-                  }}
+                  priority
                 />
               </div>
             </SwiperSlide>

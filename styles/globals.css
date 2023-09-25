@@ -161,6 +161,8 @@ body.body {
   justify-content: center;
   height: 100%;
   z-index: 1;
+  width: 100%;
+  max-width: fit-content;
 }
 
 .landing_section .banner .details .title {
@@ -177,6 +179,7 @@ body.body {
 .landing_section .banner .details .year_rating .rating {
   background: #313035;
   padding: 0 10px;
+  border-radius: 5px;
 }
 
 .landing_section .banner .details .btn_watch_now {
@@ -568,5 +571,12 @@ body.body {
 @media screen and (max-height: 719px) {
   .landing_section .mySwiper.cover_flow {
     display: none;
+  }
+
+  .landing_section .mySwiper.non_mobile {
+    display: none;
+  }
+  .landing_section .mySwiper.mobile {
+    display: block;
   }
 }

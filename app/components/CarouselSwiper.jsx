@@ -45,7 +45,9 @@ const CarouselSwiper = ({ data, selectedMovie }) => {
                 <div className="year">
                   {selectedMovie.first_air_date || selectedMovie.release_date}
                 </div>
-                <div className="rating">{`${selectedMovie.vote_average}`}</div>
+                <div className="rating">{`${selectedMovie.vote_average?.toFixed(
+                  1
+                )}`}</div>
               </div>
               <div className="overview">{selectedMovie.overview}</div>
               <Link
@@ -96,7 +98,9 @@ const CarouselSwiper = ({ data, selectedMovie }) => {
                       <div className="year">
                         {x.first_air_date || x.release_date}
                       </div>
-                      <div className="rating">{`${x.vote_average}`}</div>
+                      <div className="rating">{`${x.vote_average?.toFixed(
+                        1
+                      )}`}</div>
                     </div>
                     <div className="overview">{x.overview}</div>
                     <Link
