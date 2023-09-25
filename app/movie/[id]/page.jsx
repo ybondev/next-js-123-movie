@@ -19,10 +19,12 @@ const page = ({ params }) => {
   const [trailer, setTrailer] = useState([]);
   const [playing, setPlaying] = useState(false);
   const [pathName, setPathName] = useState("");
+  const [title, setTitle] = useState("");
 
   const movieDetails = async () => {
     const data = await getMovieDetails(params.id);
     setResponse(data);
+    setTitle(data?.original_title || data?.title || data?.original_name);
 
     const collection_data = await getMovieCollection(
       data?.belongs_to_collection?.id
@@ -49,7 +51,9 @@ const page = ({ params }) => {
     } else {
       console.log("false");
     }
-  }, []);
+
+    document.title = `Watch ${title} For Free Online | 123movies`;
+  }, [title]);
   return (
     <section className="movie_details_section container-fluid">
       <div className="container">

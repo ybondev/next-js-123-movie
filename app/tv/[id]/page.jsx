@@ -16,10 +16,12 @@ const page = ({ params }) => {
   const [trailer, setTrailer] = useState([]);
   const [playing, setPlaying] = useState(false);
   const [pathName, setPathName] = useState("");
+  const [title, setTitle] = useState("");
 
   const tvShowDetails = async () => {
     const data = await getTVShows(`tv/${params.id}`);
     setResponse(data);
+    setTitle(data?.original_title || data?.title || data?.original_name);
 
     const recommendations_data = await getTVShowsRecommendation(params.id);
     setRecommendationsResponse(recommendations_data);
@@ -36,7 +38,8 @@ const page = ({ params }) => {
   useEffect(() => {
     tvShowDetails();
     setPathName(window.location.pathname);
-  }, []);
+    document.title = `Watch ${title} For Free Online | 123movies`;
+  }, [title]);
   return (
     <section className="movie_details_section container-fluid">
       <div className="container">

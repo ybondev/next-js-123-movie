@@ -16,6 +16,7 @@ const page = () => {
 
   useEffect(() => {
     moviesTrending();
+    document.title = "Watch Free movies Online | 123movies";
   }, []);
 
   return (

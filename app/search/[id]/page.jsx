@@ -23,8 +23,8 @@ const page = ({ params }) => {
     searchData();
     removeString();
     setPathName(window.location.pathname);
-    console.log("path", window.location.pathname);
-  }, []);
+    document.title = `Search Results: ${searchTitle} | 123movies`;
+  }, [searchTitle]);
   return (
     <section className="search_section container-fluid">
       <div className="container">

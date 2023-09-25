@@ -3,7 +3,7 @@ import "@/styles/globals.css";
 import Nav from "./components/Nav";
 
 export const metadata = {
-  title: "123 Movies - ybon.dev",
+  title: "Watch Free movies Online | 123movies",
 };
 
 function layout({ children }) {

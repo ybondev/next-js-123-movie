@@ -15,6 +15,7 @@ const page = () => {
   useEffect(() => {
     movies();
     setPathName(window.location.pathname);
+    document.title = "Watch TV-Series Online For Free | 123movies";
   }, []);
   return (
     <section className="movie_section container-fluid">
