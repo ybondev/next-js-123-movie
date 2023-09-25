@@ -533,6 +533,14 @@ body.body {
     width: 100%;
     max-width: 200px;
   }
+
+  .mySwiper.mobile {
+    display: none;
+  }
+
+  .landing_section .mySwiper.non_mobile {
+    display: block;
+  }
 }
 
 @media screen and (min-height: 720px) {
@@ -545,13 +553,5 @@ body.body {
 @media screen and (max-height: 719px) {
   .landing_section .mySwiper.cover_flow {
     display: none;
-  }
-
-  .mySwiper.mobile {
-    display: none;
-  }
-
-  .landing_section .mySwiper {
-    display: block;
   }
 }

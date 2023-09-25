@@ -30,9 +30,7 @@ const Recommendations = ({ recommendations, path }) => {
             return (
               <SwiperSlide>
                 <Link
-                  href={
-                    path === `/movie/${x.id}` ? `/movie/${x.id}` : `/tv/${x.id}`
-                  }
+                  href={path === `/movie` ? `/movie/${x.id}` : `/tv/${x.id}`}
                   className="link"
                   key={x.id}
                 >

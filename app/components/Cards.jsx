@@ -12,7 +12,13 @@ const Cards = ({ data, path }) => {
           return (
             <div className="col-6 col-md-6 col-lg-3" key={x.id}>
               <Link
-                href={path === `/movie` ? `/movie/${x.id}` : `/tv/${x.id}`}
+                href={
+                  path === `/movie`
+                    ? `/movie/${x.id}`
+                    : `/tv/${x.id}` && x.media_type === "movie"
+                    ? `/movie/${x.id}`
+                    : `/tv/${x.id}`
+                }
                 className="link"
               >
                 <div className="wrapper">

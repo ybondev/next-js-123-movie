@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 const page = ({ params }) => {
   const [response, setResponse] = useState([]);
   const [searchTitle, setSearchTitle] = useState("");
+  const [pathName, setPathName] = useState("");
 
   const searchData = async () => {
     const data = await getMovieQuery(params.id);
@@ -21,13 +22,15 @@ const page = ({ params }) => {
   useEffect(() => {
     searchData();
     removeString();
+    setPathName(window.location.pathname);
+    console.log("path", window.location.pathname);
   }, []);
   return (
     <section className="search_section container-fluid">
       <div className="container">
         <div className="row">
           <div className="header_id">search results for: {searchTitle}</div>
-          <Cards data={response} />
+          <Cards data={response} path={pathName} />
         </div>
       </div>
     </section>

@@ -43,7 +43,12 @@ const page = ({ params }) => {
 
   useEffect(() => {
     movieDetails();
-    setPathName(window.location.pathname);
+
+    if (window.location.pathname.match("/movie")) {
+      setPathName("/movie");
+    } else {
+      console.log("false");
+    }
   }, []);
   return (
     <section className="movie_details_section container-fluid">
@@ -66,7 +71,7 @@ const page = ({ params }) => {
           />
         </div>
         <div className="similar_id">
-          <Similar similar={similarResponse} />
+          <Similar similar={similarResponse} path={pathName} />
         </div>
       </div>
     </section>
