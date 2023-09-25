@@ -312,6 +312,10 @@ body.body {
   font-weight: bold;
 }
 
+.movie_details .details {
+  width: 100%;
+}
+
 .movie_details .rating .fa_icon {
   color: #fdcc0d;
   margin-top: -4px;
