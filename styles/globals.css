@@ -287,13 +287,18 @@ body.body {
 /* MOVIE ID DETAILS */
 .movie_details {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   position: relative;
 }
 
 .movie_details .img_container {
   width: 100%;
-  max-width: 300px;
+  height: 100%;
+}
+
+.movie_details .img_container .img-fluid {
+  width: 100%;
   height: 100%;
   object-fit: cover;
 }
@@ -540,6 +545,16 @@ body.body {
 
   .landing_section .mySwiper.non_mobile {
     display: block;
+  }
+
+  .movie_details {
+    flex-wrap: nowrap;
+  }
+
+  .movie_details .img_container {
+    width: 100%;
+    max-width: 300px;
+    height: 100%;
   }
 }
 
