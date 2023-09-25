@@ -316,6 +316,11 @@ body.body {
   width: 100%;
 }
 
+.movie_details .details .genres {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .movie_details .rating .fa_icon {
   color: #fdcc0d;
   margin-top: -4px;
