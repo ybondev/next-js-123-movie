@@ -442,6 +442,10 @@ body.body {
   text-transform: capitalize;
 }
 
+.img-fluid {
+  object-fit: cover;
+}
+
 .trailer {
   position: absolute;
   top: 0;
