@@ -212,6 +212,11 @@ body.body {
 }
 
 /* MOVIE SECTION / SEARCH SECTION */
+.movie_section,
+.search_section {
+  padding-bottom: 20px;
+}
+
 .movie_section .wrapper,
 .search_section .wrapper {
   position: relative;
@@ -244,7 +249,7 @@ body.body {
 .search_section .details .title {
   text-align: center;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 .movie_section .details .overview,
@@ -285,6 +290,17 @@ body.body {
 .search_section .wrapper .rating.red {
   background: red;
   border-radius: 50%;
+}
+
+.movie_section button,
+.search_section button {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  border: none;
+  background: var(--accent-color);
+  color: var(--text-color);
+  text-transform: capitalize;
 }
 
 /* MOVIE ID DETAILS */
@@ -567,6 +583,12 @@ body.body {
     width: 100%;
     max-width: 300px;
     height: 100%;
+  }
+
+  .movie_section button,
+  .search_section button {
+    width: 100%;
+    max-width: 20%;
   }
 }
 

@@ -24,7 +24,7 @@ const page = ({ params }) => {
   const movieDetails = async () => {
     const data = await getMovieDetails(params.id);
     setResponse(data);
-    setTitle(data?.original_title || data?.title || data?.original_name);
+    setTitle(data?.title || data?.name);
 
     const collection_data = await getMovieCollection(
       data?.belongs_to_collection?.id

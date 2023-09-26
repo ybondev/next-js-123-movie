@@ -8,9 +8,9 @@ const Cards = ({ data, path }) => {
   return (
     <>
       {data &&
-        data.results?.map((x) => {
+        data.map((x) => {
           return (
-            <div className="col-6 col-md-6 col-lg-3" key={x.id}>
+            <div className="col-6 col-md-3 col-lg-2" key={x.id}>
               <Link
                 href={
                   path === `/movie`
@@ -35,9 +35,7 @@ const Cards = ({ data, path }) => {
                     className="img-fluid"
                   />
                   <div className="details">
-                    <div className="title">
-                      {x.original_title || x.title || x.original_name}
-                    </div>
+                    <div className="title">{x.title || x?.name}</div>
                     <div className="overview">{x.overview}</div>
                   </div>
                   {x.vote_average >= 7 ? (

@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 import ReactPlayer from "react-player";
@@ -34,9 +35,7 @@ const Details = ({ data, trailer, playing, setPlaying }) => {
           )}
         </div>
         <div className="details">
-          <div className="title">
-            {data?.original_title || data?.title || data?.original_name}
-          </div>
+          <div className="title">{data?.title || data?.name}</div>
           <div className="overview">{data?.overview}</div>
           <div className="row mt-3">
             <div className="col-md-6">
@@ -53,7 +52,11 @@ const Details = ({ data, trailer, playing, setPlaying }) => {
               <div className="langugae">
                 Language:
                 {data?.spoken_languages?.map((x) => {
-                  return <span className="dark_gray">{x.name}</span>;
+                  return (
+                    <span className="dark_gray">
+                      {x.name || x.english_name}
+                    </span>
+                  );
                 })}
               </div>
               <div className="country">
@@ -70,10 +73,19 @@ const Details = ({ data, trailer, playing, setPlaying }) => {
                   {data?.release_date || data?.first_air_date}
                 </span>
               </div>
-              <div className="episode">
-                Runtime:
-                <span className="dark_gray">{data?.runtime}m</span>
-              </div>
+              {data?.runtime ? (
+                <>
+                  <div className="episode">
+                    Runtime:
+                    <span className="dark_gray">{data?.runtime}m</span>
+                  </div>
+                </>
+              ) : (
+                <div className="episode">
+                  Episodes:
+                  <span className="dark_gray">{data?.number_of_episodes}</span>
+                </div>
+              )}
               <div className="rating">
                 Rating:
                 <span className="dark_gray">
