@@ -27,7 +27,7 @@ const Collection = ({ collection }) => {
         {collection &&
           collection?.parts?.map((x) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={x.id}>
                 <Link href={`/movie/${x.id}`} className="link" key={x.id}>
                   <div className="wrapper_card">
                     <Image
@@ -43,9 +43,7 @@ const Collection = ({ collection }) => {
                       className="img-fluid"
                     />
                     <div className="details">
-                      <div className="title">
-                        {x.original_title || x.title || x.original_name}
-                      </div>
+                      <div className="title">{x.title || x.name}</div>
                       <div className="overview">{x.overview}</div>
                     </div>
                     {x.vote_average >= 7 ? (

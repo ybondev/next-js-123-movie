@@ -28,7 +28,7 @@ const Similar = ({ similar, path }) => {
         {similar &&
           similar.results?.map((x) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={x.id}>
                 <Link
                   href={path === `/movie` ? `/movie/${x.id}` : `/tv/${x.id}`}
                   className="link"
@@ -48,9 +48,7 @@ const Similar = ({ similar, path }) => {
                       className="img-fluid"
                     />
                     <div className="details">
-                      <div className="title">
-                        {x.original_title || x.title || x.original_name}
-                      </div>
+                      <div className="title">{x.title || x.name}</div>
                       <div className="overview">{x.overview}</div>
                     </div>
                     {x.vote_average >= 7 ? (

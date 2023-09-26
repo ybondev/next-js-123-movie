@@ -31,8 +31,8 @@ const CarouselMini = ({ data, selectedMovie }) => {
       >
         {data.results?.map((x) => {
           return (
-            <SwiperSlide onClick={() => selectedMovie(x)}>
-              <div className="img_container" key={x.id}>
+            <SwiperSlide onClick={() => selectedMovie(x)} key={x.id}>
+              <div className="img_container">
                 <Image
                   src={`${imageBaseURL}/w500` + x.poster_path}
                   width={500}

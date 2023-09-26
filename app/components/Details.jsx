@@ -15,7 +15,7 @@ const Details = ({ data, trailer, playing, setPlaying }) => {
                 ? `${imageBaseURL}/w300` + data?.poster_path
                 : "https://images.squarespace-cdn.com/content/v1/5a79de08aeb625f12ad4f85a/1527015265032-KYY1AQ4NCW6NB7BK1NDH/placeholder-image-vertical.png"
             }
-            width={300}
+            width={0}
             height={0}
             priority
             alt=""
@@ -53,7 +53,7 @@ const Details = ({ data, trailer, playing, setPlaying }) => {
                 Language:
                 {data?.spoken_languages?.map((x) => {
                   return (
-                    <span className="dark_gray">
+                    <span className="dark_gray" key={x.iso_639_1}>
                       {x.name || x.english_name}
                     </span>
                   );
@@ -62,7 +62,12 @@ const Details = ({ data, trailer, playing, setPlaying }) => {
               <div className="country">
                 Country:
                 {data?.production_countries?.map((x) => {
-                  return <span className="dark_gray">{`${x.name},`}</span>;
+                  return (
+                    <span
+                      className="dark_gray"
+                      key={x.iso_3166_1}
+                    >{`${x.name},`}</span>
+                  );
                 })}
               </div>
             </div>

@@ -25,7 +25,7 @@ const CarouselSwiper = ({ data, selectedMovie }) => {
         modules={[Autoplay]}
         className="mySwiper non_mobile"
       >
-        <SwiperSlide>
+        <SwiperSlide key={selectedMovie.id}>
           <div className="img_container cover">
             <Image
               src={`${imageBaseURL}` + selectedMovie.backdrop_path}
@@ -80,7 +80,7 @@ const CarouselSwiper = ({ data, selectedMovie }) => {
         {data &&
           data?.results?.map((x) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={x.id}>
                 <div className="img_container cover">
                   <Image
                     src={`${imageBaseURL}` + x.backdrop_path}
