@@ -26,10 +26,13 @@ const page = ({ params }) => {
     setResponse(data);
     setTitle(data?.title || data?.name);
 
-    const collection_data = await getMovieCollection(
-      data?.belongs_to_collection?.id
-    );
-    setCollectionResponse(collection_data);
+    if (data?.belongs_to_collection?.id) {
+      const collection_data = await getMovieCollection(
+        data?.belongs_to_collection?.id
+      );
+      setCollectionResponse(collection_data);
+    } else {
+    }
 
     const similar_data = await getMovieSimilarDetails(params.id);
     setSimilarResponse(similar_data);
