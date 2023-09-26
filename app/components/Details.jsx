@@ -3,7 +3,7 @@ import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 import ReactPlayer from "react-player";
 
-const Details = ({ data, trailer, playing, setPlaying }) => {
+const Details = ({ data, trailer, playing, setPlaying, loading }) => {
   const imageBaseURL = `https://image.tmdb.org/t/p`;
   return (
     <div className="col-md-12">

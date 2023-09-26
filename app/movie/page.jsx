@@ -32,7 +32,7 @@ const page = () => {
       <div className="container">
         <div className="row gy-3">
           <div className="header">movies</div>
-          <Cards data={response} path={pathName} />
+          <Cards data={response} path={pathName} loading={loading}/>
           <div className="btn_load">
             <button onClick={loadMoreMovies}>
               {loading ? "load more" : "loading..."}

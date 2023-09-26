@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const Cards = ({ data, path }) => {
+const Cards = ({ data, path, loading }) => {
   const imageBaseURL = `https://image.tmdb.org/t/p`;
 
   return (
@@ -24,7 +24,7 @@ const Cards = ({ data, path }) => {
                 <div className="wrapper">
                   <Image
                     src={
-                      x?.poster_path
+                      loading && x?.poster_path
                         ? `${imageBaseURL}/w500` + x.poster_path
                         : "https://images.squarespace-cdn.com/content/v1/5a79de08aeb625f12ad4f85a/1527015265032-KYY1AQ4NCW6NB7BK1NDH/placeholder-image-vertical.png"
                     }
@@ -32,37 +32,45 @@ const Cards = ({ data, path }) => {
                     height={0}
                     alt=""
                     priority
-                    className="img-fluid"
+                    className={loading ? "img-fluid" : "loading-pulse"}
                   />
-                  <div className="details">
-                    <div className="title">{x.title || x?.name}</div>
-                    <div className="overview">{x.overview}</div>
-                  </div>
-                  {x.vote_average >= 7 ? (
-                    <div className="rating green">
-                      <span>{((x.vote_average * 100) / 10).toFixed(0)}%</span>
+                  {loading ? (
+                    <div className="details">
+                      <div className="title">{x.title || x?.name}</div>
+                      <div className="overview">{x.overview}</div>
                     </div>
-                  ) : (
+                  ) : null}
+                  {loading ? (
                     <>
-                      {x.vote_average >= 4 ? (
-                        <>
-                          <div className="rating orange">
-                            <span>
-                              {((x.vote_average * 100) / 10).toFixed(0)}%
-                            </span>
-                          </div>
-                        </>
+                      {x.vote_average >= 7 ? (
+                        <div className="rating green">
+                          <span>
+                            {((x.vote_average * 100) / 10).toFixed(0)}%
+                          </span>
+                        </div>
                       ) : (
                         <>
-                          <div className="rating red">
-                            <span>
-                              {((x.vote_average * 100) / 10).toFixed(0)}%
-                            </span>
-                          </div>
+                          {x.vote_average >= 4 ? (
+                            <>
+                              <div className="rating orange">
+                                <span>
+                                  {((x.vote_average * 100) / 10).toFixed(0)}%
+                                </span>
+                              </div>
+                            </>
+                          ) : (
+                            <>
+                              <div className="rating red">
+                                <span>
+                                  {((x.vote_average * 100) / 10).toFixed(0)}%
+                                </span>
+                              </div>
+                            </>
+                          )}
                         </>
                       )}
                     </>
-                  )}
+                  ) : null}
                 </div>
               </Link>
             </div>
