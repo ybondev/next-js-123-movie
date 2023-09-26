@@ -7,15 +7,18 @@ const page = () => {
   const [response, setResponse] = useState([]);
   const [pathName, setPathName] = useState("");
   const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   const movies = async () => {
     const data = await getMovies(`/discover/movie?page=${page}`);
     const newMovies = data.results;
+    setLoading(true);
     setResponse([...response, ...newMovies]);
   };
 
   const loadMoreMovies = () => {
     setPage(page + 1);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -31,7 +34,9 @@ const page = () => {
           <div className="header">movies</div>
           <Cards data={response} path={pathName} />
           <div className="btn_load">
-            <button onClick={loadMoreMovies}>load more</button>
+            <button onClick={loadMoreMovies}>
+              {loading ? "load more" : "loading..."}
+            </button>
           </div>
         </div>
       </div>

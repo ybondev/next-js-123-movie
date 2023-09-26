@@ -8,15 +8,18 @@ const page = ({ params }) => {
   const [searchTitle, setSearchTitle] = useState("");
   const [pathName, setPathName] = useState("");
   const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   const searchData = async () => {
     const data = await getMovieQuery(`${params.id}&page=${page}`);
     const newMovies = data.results;
+    setLoading(true);
     setResponse([...response, ...newMovies]);
   };
 
   const loadMoreMovies = () => {
     setPage(page + 1);
+    setLoading(false);
   };
 
   const removeString = () => {
@@ -38,7 +41,9 @@ const page = ({ params }) => {
           <div className="header_id">search results for: {searchTitle}</div>
           <Cards data={response} path={pathName} />
           <div className="btn_load">
-            <button onClick={loadMoreMovies}>load more</button>
+            <button onClick={loadMoreMovies}>
+              {loading ? "load more" : "loading..."}
+            </button>
           </div>
         </div>
       </div>
