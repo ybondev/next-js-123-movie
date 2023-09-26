@@ -593,10 +593,6 @@ body.body {
 }
 
 @media screen and (min-height: 720px) {
-  /* .landing_section .cover_flow .swiper-slide {
-    width: 100%;
-    max-width: 100px;
-  } */
 }
 
 @media screen and (max-height: 719px) {
