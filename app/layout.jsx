@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 
 export const metadata = {
   title: "Watch Free movies Online | 123movies",
+  description: "Watch Free movies Online | 123movies",
 };
 
 function layout({ children }) {

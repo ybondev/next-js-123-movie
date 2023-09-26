@@ -521,6 +521,7 @@ body.body {
     top: unset;
     right: unset;
     display: flex;
+    align-items: center;
     flex-direction: row;
     background: unset;
     backdrop-filter: unset;

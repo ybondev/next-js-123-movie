@@ -52,7 +52,9 @@ const Nav = () => {
                 tv-series
               </Link>
             </li>
-            <Search onSubmit={handleSearchSubmit} />
+            <li>
+              <Search onSubmit={handleSearchSubmit} />
+            </li>
           </ul>
           <label htmlFor="checkbox" onClick={() => setOpen(!open)}>
             <FaBars className="fa_icon" />
