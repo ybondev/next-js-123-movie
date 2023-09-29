@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = process.env.NEXT_API_KEY;
+const API = process.env.NEXT_PUBLIC_API_KEY;
 
 const axiosInstance = axios.create({
   method: "GET",
